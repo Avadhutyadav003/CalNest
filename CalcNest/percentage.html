@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<style>
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 3rem;
+    background-image: url(asset/bg-desktop.svg);
+    position: sticky;
+}
+.left{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:300px;
+}
+.left h2{
+    font-size: 30px;
+    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.right{
+    width: 300px;
+    display: flex;
+}
+.right ul{
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    padding-left: 50px;
+}
+.right ul li a{
+    text-decoration: none;
+    color: black;
+}
+
+.nav:hover{
+     box-shadow: 10px 10px 2px rgba(128, 128, 128, 0.726);
+     transition: ease-in 0.5s;
+}
+.right ul li:hover{
+    transform: scale(1.2);
+    transition: ease-in 0.5ms;
+}
+.footer{
+    bottom: 0;
+    /* margin-top: 50px; */
+    background-color:whitesmoke;
+    height: 50px;
+    width: 98.9vw;
+    position: relative;
+    display: flex;
+    border: 0.5px solid rgba(0, 0, 0, 0.268);
+}
+.left-footer{
+    color: rgb(110, 110, 110);
+    height: 50px;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    margin-left: 1rem;
+}
+.right-footer{
+    height: 50px;
+    width: 50%;
+    display: flex;
+}
+.right-footer ul{
+    display: flex;
+    list-style: none;
+    gap: 50px;
+    padding-left: 350px;
+    align-items: center;
+}
+.right-footer ul li a{
+    text-decoration: none;
+    color: rgb(107, 106, 106);
+}
+.main{
+    height: 100vh;
+    background-image: url(asset/bg-desktop.svg);
+    background-repeat: no-repeat;
+}
+.card{
+    padding-top: 100px;
+}
+.percentage{
+    height: 400px;
+    width: 400px;
+    background-color: white;
+    margin-left: 550px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 1rem;
+    border: 1px solid blue;
+}
+.placeval{
+    height: 30px;
+    width: 200px;
+}
+p{
+    height: 50px;
+    width :auto;
+}
+</style>
+<body>
+     <nav>
+        <div class="nav">
+            <div class="left">
+                <h2>CalcNest</h2>
+            </div>
+            <div class="right">
+                <ul>
+                    <li><a href="calnet.html">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact Me</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <div class="main">
+           <div class="card">
+            <div class="percentage">
+                <h2>Calculate Percentage</h2>
+                <br>
+                <h4>Enter your Obtained Marks</h4>
+                <input type="text" placeholder="Enter your Obtained Marks" class="placeval" id="Obtained" style="padding: 5px;">
+                <h4>Enter your Total Marks</h4>
+                <input type="text" placeholder="Enter your Total Marks" class="placeval" id="Total" style="padding: 5px;">
+                <button onclick="calculate()">Calculate</button>
+                <p id="result"></p>
+            </div>
+           </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer">
+            <div class="left-footer">
+                <p>This website is My Learning Project &copy;</p>
+            </div>
+            <div class="right-footer">
+                <ul>
+                    <li><a href="#">Contact Me</a></li>
+                    <li><a href="#">About Me</a></li>
+                    <li><a href="#">Linkdin</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+<script>
+    function calculate(){
+        let obtain=document.getElementById("Obtained").value;
+        let Total =document.getElementById("Total").value;
+
+       if(Total==""||obtain==""||Total==0){
+        document.getElementById("result").innerText="enter the valid value";
+        return;
+       }
+       let cal=(obtain/Total)*100;
+       document.getElementById("result").innerText=`Percentage : ${cal}`;
+       
+    }
+</script>
+
+
+</body>
+</html>
